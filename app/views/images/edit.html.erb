@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<div class="col-sm-8 col-sm-offset-2">
+	<div class="row report">
+		<div class="col-sm-6">
+			<img class="x-ray" src="/image_sample_normal.PNG">
+		</div>
+		<div class="col-sm-6 report_text">
+			<h1><b><%= @image.name %></b></h1>
+			<h4>Department: <%= @image.department %></h4>
+			<h4>Date Taken: <%= @image.date %></h4>
+			<%= render 'edit_form' %>
+		</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+
+<%= simple_form_for @image, html:{multipart: true} do |f| %>
+	<%= f.input :name %>
+	<%= f.input :department %>
+	<%= f.input :date %>
+	<%= f.input :priority %>
+	<%= f.button :submit %>
+<% end %>

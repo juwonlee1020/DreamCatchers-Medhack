@@ -1,0 +1,34 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+*{
+	text-align: center;
+}
+
+td{
+	text-align: left;
+}
+
+.log-in{
+	border-style: solid;
+	width: 50%;
+	margin: auto;
+	margin-top: 20em;
+}
+
+.x-ray{
+	width: 35em;
+	height: 40em;
+}
+
+.report{
+	margin-top: 10%;
+}
+
+.report_text{
+	margin-top:1em;
+}
+.simple_form div.input {
+  width: 5em;
+  clear: both; /* Required for Webkit, but not for Gecko */
+}
+

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand">X-Brain</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
+      </ul>
+    </nav>
+<div>
+	<h1>Chest X-Ray: Reported</h1>
+	<div class="filter">
+		<%= form_tag images_path, method: :get do %>
+			<%= label_tag :department %>		
+			<%= select_tag(:department, options_from_collection_for_select(Image.all, :department, :department, params[:department])) %>	
+			<%= submit_tag "Filter" %>
+		<% end %>
+	</div>
+	<br>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Patient Name</th>
+				<th>Date and Time</th>
+				<th>Department</th>
+				<th>Priority</th>
+				<th>Abnormality Mismatch</th>
+				<th colspan="1"></th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<% @images.each do |image| %>
+				<tr>
+					<td><%= image.name %></td>
+					<td><%= image.date %></td>
+					<td><%= image.department %></td>
+					<td><%= image.priority %></td>
+					<td><%= image.abnormality_doctor == image.abnormality_machine %>
+					<td><%= link_to 'View', edit_image_path(image) %></td>
+				</tr>
+			<% end %>
+
+
+		</tbody>
+	</table>
+</div>
