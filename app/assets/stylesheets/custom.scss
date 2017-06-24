@@ -16,7 +16,7 @@ td{
 	margin-top: 20em;
 }
 
-.x-ray{
+#x-ray{
 	width: 35em;
 	height: 40em;
 }
@@ -43,6 +43,31 @@ td{
 	width: 25px;
 }
 
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
 /*
 nav {
 	background-color: #48D1CC;
@@ -66,3 +91,11 @@ ul.nav > li {
 	color: white;
 }
 */
+#map{
+    height: 400px;
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}

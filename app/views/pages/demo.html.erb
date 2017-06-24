@@ -3,20 +3,21 @@
         <a class="navbar-brand">Xvisor</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      	<li><%= link_to("Unreported Scans", images_path,method: :get) %> </li>
+      	<li><%= link_to("Unreported Scans", images_path, method: :get) %> </li>
         <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
         <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
         <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
 
       </ul>
     </nav>
-<h1 style="margin-top:1em;"">API Demo</h1>
-<div style="margin-top:9em; margin-bottom: 0" class="container-fluid">
-	<div class="row" style="background-color: #F1F0F0">
+
+<h1 style="margin-top:2em;">API Demo</h1>
+<div style="margin-top:5em;" class="container-fluid">
+	<div class="row" style="background-color: gainsboro">
 		<div class="col-sm-6" style="border-right: solid; margin-top: 5em;">
 			<form>
 			    <input type="text" name="Image URL" id="url_box">
-			    <button onclick="sendRequest(event); test(event)">Send Request</button>
+          <button onclick = "sendRequest(event)">Check</button>
 			    <br>
 			    <br>
 			    <input style="margin: auto" type="file" onchange="previewFile()"><br>
@@ -73,7 +74,7 @@
             }).done(function(data){
                 var s = data.score;
     			$("#input_img").attr('src', data.original); 
-    			$("#score").html("The abnormality index of the given image is " + s + );
+    			$("#score").html("The abnormality index of the given image is " + s );
     			if(s < 0.5){
     				$("#JSON").html("No obvious pulmonary mass lesion or consolidation is seen.<br> Cardiac outline is normal.");
     				$("#normal").show();
@@ -84,26 +85,5 @@
             })
        
     }
-/*
-    function test(e){
-    	$("#JSON").innerHTML = "hullo";
-
-    	document.getElementById("JSON").innerHTML = "HULLO";
-
-    	
-    	$("#JSON").html("The abnormality index of the given image is: " + data.score);
-    	if(data.score < 0.5){
-    		#("#Format").html("Th")
-    	}
-    	
-    }
-*/
-    /*
-
-    $("#url_box").keyup(function(){
-    	var image_url = $("#url_box").val();
-    	$("#input_img").attr('src', image_url); 
-    })
-	*/
 
   </script>

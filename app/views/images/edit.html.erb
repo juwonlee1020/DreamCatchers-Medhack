@@ -1,8 +1,24 @@
+<nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <img class="navbar-brand" style="width:90px; height:50px; padding: 0;" src="/logo.jpg"></img>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><%= link_to("Unreported Scans", images_path,method: :get) %> </li>
+        <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
+        <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
+        <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
+
+      </ul>
+</nav>
 <div class="container-fluid">
 	<div class="col-sm-8 col-sm-offset-2">
 	<div class="row report">
 		<div class="col-sm-6">
-			<img class="x-ray" src="/image_sample_normal.PNG">
+			<img id="x-ray" src="/TB.jpg">
+			<br>
+			<% if(@image.abnormality_machine == true) -%>
+				<button id="but" onclick= "changePic(event)">View Highlighted Area</button>
+			<% end %>
 		</div>
 		<div class="col-sm-6 report_text">
 			<h1><b><%= @image.name %></b></h1>
@@ -13,3 +29,31 @@
 	</div>
 	</div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function changePic(e){
+	e.preventDefault();
+	if(	document.getElementById("but").innerHTML == "View Highlighted Area"){
+		document.getElementById("x-ray").src = "/heat_map.jpg";
+		document.getElementById("but").innerHTML = "View Original Image";
+
+	} else{
+		document.getElementById("x-ray").src = "/TB.jpg";
+
+		document.getElementById("but").innerHTML = "View Highlighted Area";
+	}
+
+
+	/*
+	if(document.getElementById("x-ray").src == "/TB.jpg"){
+		document.getElementById("but").innerHTML = "View Highlighted Area";
+		document.getElementById("x-ray").src = "/heat_map.jpg";
+	} else if(document.getElementById("x-ray").src == "/heat_map.jpg";
+){
+		document.getElementById("but").innerHTML = "View Original Area";
+		document.getElementById("x-ray").src = "/TB.jpg";
+	}
+	*/
+}
+
+</script>

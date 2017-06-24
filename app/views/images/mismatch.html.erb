@@ -19,7 +19,7 @@
 			<%= submit_tag "Filter" %>
 		<% end %>
 	</div>
-	<li><%= link_to("View Mismatches", images_mismatch_path, method: :get)%></li>
+	<li><%= link_to("View All", images_check_path, method: :get)%></li>
 	<br>
 	<br>
 	<table class="table">
@@ -37,6 +37,7 @@
 		</thead>
 		<tbody>
 			<% @images.each do |image| %>
+			<% if(image.abnormality_doctor != image.abnormality_machine) -%>
 				<tr>
 					<td><%= image.name %></td>
 					<td><%= image.date %></td>
@@ -51,6 +52,7 @@
 					<% end -%>
 					<td><%= link_to 'View', edit_image_path(image) %></td>
 				</tr>
+			<% end %>
 			<% end %>
 
 

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <img class="navbar-brand" style="width:90px; height:50px; padding: 0;" src="/logo.jpg"></img>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><%= link_to("Unreported Scans", images_path,method: :get) %> </li>
+        <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
+        <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
+        <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
+
+      </ul>
+</nav>
+<div class="container-fluid">
+	<div class="col-sm-8 col-sm-offset-2">
+	<div class="row report">
+		<div class="col-sm-6">
+			<img class="x-ray" src="/TB.jpg">
+		</div>
+		<div class="col-sm-6 report_text">
+			<h1><b><%= @image.name %></b></h1>
+			<h4>Department: <%= @image.department %></h4>
+			<h4>Date Taken: <%= @image.date %></h4>
+			<%= render 'edit_form' %>
+		</div>
+	</div>
+	</div>
+</div>

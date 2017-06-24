@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
       <div class="navbar-header">
-        <a class="navbar-brand">Xvisor</a>
+        <img class="navbar-brand" style="width:90px; height:50px; padding: 0;" src="/logo.jpg"></img>
       </div>
       <ul class="nav navbar-nav navbar-right">
       	<li><%= link_to("Unreported Scans", images_path,method: :get) %> </li>
@@ -10,6 +10,11 @@
 
       </ul>
 </nav>
+<div class="alert" style="margin-top: 0;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  Possible Outbreak: Suspicious cluster of cases of pneumonia detected in Hong Kong West Cluster <br><a style="size:1em;color:gainsboro"; href="#">Click here for more details</a>
+</div>
+
 <div style="margin-top: 3em">
 	<h1>Chest X-Ray: Unreported</h1>
 	<div class="filter">
@@ -19,6 +24,7 @@
 			<%= submit_tag "Filter" %>
 		<% end %>
 	</div>
+
 	<br>
 	<br>
 	<table class="table container-fluid">

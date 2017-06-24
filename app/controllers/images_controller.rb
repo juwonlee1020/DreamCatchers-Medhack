@@ -14,11 +14,23 @@ class ImagesController < ApplicationController
 		end
 	end
 
+	def maps
+	end
+	
 	def check
 		@images = Image.all
 		@images = @images.where.not(:report => (nil))
 		@images = @images.order("priority DESC")
 	end
+
+	def mismatch
+		@images = Image.all
+		@images = @images.where.not(:report => (nil))
+		@images = @images.where.not(:abnormality_doctor => :abnormality_machine)
+		@images = @images.order("priority DESC")
+	end
+
+
 
 	def show
 		@image = Image.find(params[:id])
@@ -58,6 +70,6 @@ class ImagesController < ApplicationController
 		
 
 	def image_params
-		params.require(:image).permit(:name, :department, :report, :abnormality_doctor, :date, :priority, :abnormality_machine)
+		params.require(:image).permit(:name, :department, :report, :abnormality_doctor, :date, :priority, :abnormality_machine, :date_reported)
 	end 
 end
