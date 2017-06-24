@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand">X-Brain</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to("Unreported Scans", images_path,method: :get) %> </li>
+        <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
+        <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
+        <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
+
+      </ul>
+    </nav>
