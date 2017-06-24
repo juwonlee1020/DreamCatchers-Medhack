@@ -1,0 +1,80 @@
+<nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand">X-Brain</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
+        <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
+        <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
+      </ul>
+</nav>
+<h1>API Demo</h1>
+<div style="margin-top:10em;" class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6" style="border-right: solid">
+			<form>
+			    <input type="text" name="Image URL" id="url_box">
+			    <button onclick="sendRequest(event)">Send Request</button>
+			    <br>
+			    <br>
+			    <input style="margin: auto" type="file" onchange="previewFile()"><br>
+			    <div style="height:200px; border: solid; width: 50%">
+			    	<img id="input_img" src="" alt="Image preview..." style="height:200px;">
+			    </div>
+			</form>
+		</div>
+	<br>
+		<div class="col-sm-6">
+			<div style="border:solid; height:100px; width: 50%;" id="JSON"></div>
+			<br>
+			<div style = "border:solid; height:100px; width:50%;" id="Format"></div>
+		</div>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+<script>
+   function previewFile(){
+       var preview = document.querySelector('img'); //selects the query named img
+       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+       var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
+
+       if (file) {
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.src = "";
+       }
+  }
+
+  previewFile();  //calls the function named previewFile()
+    
+    function sendRequest(e){
+    	e.preventDefault();
+        $.get(
+            "http://104.196.225.45:5000/scan",
+            {
+                url: $("#url_box").val()
+            }).done(function(data){
+                
+                $("#Format").text("hullo")
+
+            })
+
+       
+    }
+
+    $("#url_box").keyup(function(){
+    	var image_url = $("#url_box").val();
+    	$("#input_img").attr('src', image_url); 
+    })
+
+
+  </script>

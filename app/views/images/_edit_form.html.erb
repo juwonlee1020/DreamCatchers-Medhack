@@ -1,7 +1,7 @@
 <%= simple_form_for @image do |f| %>
 	<%= f.input :date %>
 	<%= f.input :priority %>
-
+	<%= f.input :department %>
 	<%= f.input :report, :input_html => {:rows => 10, :cols => 100} %>
 
 	<%= f.input :abnormality_doctor, :label => "Further Investigation Needed" %>

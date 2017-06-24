@@ -5,6 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
         <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
+        <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
       </ul>
     </nav>
 <div>
@@ -12,7 +13,7 @@
 	<div class="filter">
 		<%= form_tag images_path, method: :get do %>
 			<%= label_tag :department %>		
-			<%= select_tag(:department, options_from_collection_for_select(Image.all, :department, :department, params[:department])) %>	
+			<%= select_tag(:department, options_for_select(["Accident & Emergency", "Anaesthesia", "Clinical Oncology", "General Practice", "Obstetrics & Gynaecology", "Orthopaedics & Traumatology", "Paediatric", "Surgery" ])) %>	
 			<%= submit_tag "Filter" %>
 		<% end %>
 	</div>

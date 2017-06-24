@@ -2,6 +2,11 @@ class PagesController < ApplicationController
   def home
   end
 
-  def prioritization
+  def documentation
   end
+
+  def demo
+  end
+
+
 end
