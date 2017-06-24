@@ -5,8 +5,11 @@ class ImagesController < ApplicationController
 			@images = Image.all
 			@images = @images.where(:report => nil)
 			@images = Image.where(department: params["department"])
+			@images = @images.order("priority DESC")
+
 		else
 			@images = Image.all
+			@images = @images.where(:report => nil)
 			@images = @images.order("priority DESC")
 		end
 	end
@@ -14,6 +17,7 @@ class ImagesController < ApplicationController
 	def check
 		@images = Image.all
 		@images = @images.where.not(:report => (nil))
+		@images = @images.order("priority DESC")
 	end
 
 	def show
@@ -54,6 +58,6 @@ class ImagesController < ApplicationController
 		
 
 	def image_params
-		params.require(:image).permit(:name, :department, :report, :abnormality_doctor, :date, :priority)
+		params.require(:image).permit(:name, :department, :report, :abnormality_doctor, :date, :priority, :abnormality_machine)
 	end 
 end

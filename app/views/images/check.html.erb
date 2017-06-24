@@ -28,7 +28,7 @@
 				<th>Date and Time</th>
 				<th>Department</th>
 				<th>Priority</th>
-				<th>Abnormality Mismatch</th>
+				<th>Mismatch</th>
 				<th colspan="1"></th>
 
 			</tr>
@@ -40,7 +40,12 @@
 					<td><%= image.date %></td>
 					<td><%= image.department %></td>
 					<td><%= image.priority %></td>
-					<td><%= image.abnormality_doctor == image.abnormality_machine %>
+					<% if(image.abnormality_doctor == image.abnormality_machine) -%>
+					<td id="green"></td>
+					<% end -%>
+					<% if(image.abnormality_doctor != image.abnormality_machine) -%>
+					<td id="red"></td>
+					<% end -%>
 					<td><%= link_to 'View', edit_image_path(image) %></td>
 				</tr>
 			<% end %>
