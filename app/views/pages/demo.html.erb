@@ -1,15 +1,15 @@
 <nav class="navbar navbar-default">
       <div class="navbar-header">
-        <a class="navbar-brand">Xvisor</a>
+        <img class="navbar-brand" style="width:90px; height:50px; padding: 0;" src="/logo.jpg"></img>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      	<li><%= link_to("Unreported Scans", images_path, method: :get) %> </li>
+        <li><%= link_to("Unreported Scans", images_path,method: :get) %> </li>
         <li><%= link_to("Reported Scans", images_check_path, method: :get) %></li>
         <li><%= link_to("API Demo", pages_demo_path, method: :get) %></li>
         <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </li>
 
       </ul>
-    </nav>
+</nav>
 
 <h1 style="margin-top:2em;">API Demo</h1>
 <div style="margin-top:5em;" class="container-fluid">
