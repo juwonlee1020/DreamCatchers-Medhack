@@ -12,7 +12,7 @@
 </nav>
 <div class="alert" style="margin-top: 0;">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  Possible Outbreak: Suspicious cluster of cases of pneumonia detected in Hong Kong West Cluster <br><a style="size:1em;color:gainsboro"; href="#">Click here for more details</a>
+  Possible Outbreak: Suspicious cluster of cases of pneumonia detected in Hong Kong West Cluster <br><%= link_to("Click here for more details", pages_maps_path, method: :get) %>
 </div>
 
 <div style="margin-top: 3em">
@@ -34,7 +34,7 @@
 				<th>Date and Time</th>
 				<th>Department</th>
 				<th>Priority</th>
-				<th><%= link_to 'Add', new_image_path%>  </th>
+				<th colspan = "1"></th>
 				<th colspan="1"></th>
 
 			</tr>

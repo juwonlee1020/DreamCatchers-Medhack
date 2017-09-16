@@ -16,7 +16,7 @@
 		<div class="col-sm-6">
 			<img id="x-ray" src="/TB.jpg">
 			<br>
-			<% if(@image.abnormality_machine == true) -%>
+			<% if(@image.abnormality_machine == true && @image.report != nil) -%>
 				<button id="but" onclick= "changePic(event)">View Highlighted Area</button>
 			<% end %>
 		</div>
